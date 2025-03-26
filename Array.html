@@ -1,0 +1,30 @@
+<html>
+<body>
+<h2>Javascript Array Methods</h2>
+<script>
+var fruits=["Banana","Orange","Apple","Mango"];
+var dryfruits=["Pista","Dates","Almonds"];
+document.write("<br>"+fruits); //array before poping fruits.pop();
+
+document.write("<br>"+fruits); //array after poping fruits.push("Grapes");
+
+document.write("<br>"+fruits);//array after pushing fruits.shift();
+
+document.write("<br>"+fruits);//array after shifting fruits.unshift("Pear");
+
+document.write("<br>"+fruits);//array after unshifting
+fruits.splice(2,0,"Strawberry");//0 is for insertion.strawberry will be inserted at position 2
+
+document.write("<br>"+fruits);//array after Splicing (insertion)
+fruits.splice(0,3);//removes the zeroth,first and second elements
+
+document.write("<br>"+fruits);//array after Splicing(deletion)
+newfruits=fruits.concat(dryfruits);
+
+document.writeln("<br>"+newfruits);//array after concatenation 
+res=fruits.slice(0,3,);
+document.writeln("<br>"+res);//array after Slicing
+</script>
+</body>
+</html>
+
