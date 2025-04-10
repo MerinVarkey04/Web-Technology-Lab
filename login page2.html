@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<form id="loginForm">
+    <label for="username">Username (Email):</label><br>
+    <input type="text" id="username" name="username" placeholder="Enter your email"><br>
+    <span id="usernameError" style="color: red; display: none;">Enter a valid email address.</span><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter your password"><br>
+    <span id="passwordError" style="color: red; display: none;">
+        Password must be at least 8 characters long, contain a number, and a special character.
+    </span><br><br>
+
+    <button type="button" onclick="validateLogin()">Login</button>
+</form>
+
+<script>
+function validateLogin() {
+    // Get form values
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Get error message elements
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+
+    // Regular expressions for validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    // Reset error messages
+    usernameError.style.display = "none";
+    passwordError.style.display = "none";
+
+    let isValid = true;
+
+    // Validate username (email)
+    if (!emailRegex.test(username)) {
+        usernameError.style.display = "inline";
+        isValid = false;
+    }
+
+    // Validate password
+    if (!passwordRegex.test(password)) {
+        passwordError.style.display = "inline";
+        isValid = false;
+    }
+
+    // If valid, simulate login success
+    if (isValid) {
+        alert("Login successful!");
+    }
+}
+</script>
+
+</body>
+</html>
